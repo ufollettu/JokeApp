@@ -1,7 +1,11 @@
 <div class="card card-block">
-  <h4 class="card-title">{{data.setup}}</h4>
+  <h4 class="card-title">
+    <ng-content select=".setup"></ng-content>
+  </h4>
   <p class="card-text"
-     [hidden]="data.hide">{{data.punchline}}</p>
+     *ngIf="!data.hide">
+    <ng-content select=".punchline"></ng-content>
+  </p>
   <a (click)="data.toggle()"
      role="button"
      class="btn btn-warning">Tell Me

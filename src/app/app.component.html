@@ -1,2 +1,39 @@
-<app-joke-list></app-joke-list>
+<div class="col-md-4">
+  <app-joke-list>
+    <app-joke [joke]="joke">
+      <span class="setup">{{ joke.setup }}?</span>
+      <h1 class="punchline">{{ joke.punchline }}</h1>
+    </app-joke>
+  </app-joke-list>
 
+  <!--<app-carousel [delay]="2000">-->
+  <!--<app-carousel-item>-->
+  <!--<img src="https://unsplash.it/200?image=0" alt="">-->
+  <!--</app-carousel-item>-->
+  <!--<app-carousel-item>-->
+  <!--<img src="https://unsplash.it/200?image=100" alt="">-->
+  <!--</app-carousel-item>-->
+  <!--<app-carousel-item>-->
+  <!--<img src="https://unsplash.it/200?image=200" alt="">-->
+  <!--</app-carousel-item>-->
+  <!--</app-carousel>-->
+
+  <!--<app-alert>-->
+  <!--<p #insideContent>{{type}} Inside Content</p>-->
+  <!--</app-alert>-->
+  <!--<app-alert type="danger">-->
+  <!--<p #insideContent>{{type}} Inside Content</p>-->
+  <!--</app-alert>-->
+  <!--<app-alert type="info">-->
+  <!--<p #insideContent>{{type}} Inside Content</p>-->
+  <!--</app-alert>-->
+
+  <!--<div #div>#div is a template variable</div>-->
+  <!--<app-tabs>-->
+  <!--<app-tab title="One"></app-tab>-->
+  <!--<app-tab title="two"></app-tab>-->
+  <!--</app-tabs>-->
+
+  <app-articles></app-articles>
+
+</div>

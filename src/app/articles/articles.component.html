@@ -1,0 +1,29 @@
+<h1>Article List</h1>
+<ul
+  *ngFor="let article of articles">
+  <li
+    class="card"
+    [ngClass]="article.selectClass(article.kind)"
+  >
+    <div class="card-block">
+      <h4 class="card-title">{{article.title}}</h4>
+    </div>
+    <div
+      *ngIf="article.kind==='image'">
+      <img
+        class="img-fluid"
+        src="{{article.desc}}">
+    </div>
+    <div
+      class="card-block"
+      *ngIf="article.kind==='text'">
+      <p class="card-text">{{article.desc}}</p>
+    </div>
+    <div class="card-block">
+      <p class="card-text">
+        <small class="text-muted">Last updated {{ article.date | date:"shortDate" }}</small>
+      </p>
+    </div>
+  </li>
+</ul>
+
