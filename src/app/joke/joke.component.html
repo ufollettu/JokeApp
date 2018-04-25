@@ -1,15 +1,21 @@
-<div class="card card-block">
+<div
+  class="card card-block"
+  [ccCardHover]="{querySelector: 'p'}">
   <h4 class="card-title">
-    <ng-content select=".setup"></ng-content>
+    <!--<ng-content select=".setup"></ng-content>-->
+    {{data.setup | cleanPipe:'boo, damn, hell'}}
   </h4>
-  <p class="card-text"
-     *ngIf="!data.hide">
-    <ng-content select=".punchline"></ng-content>
+  <!--<p class="card-text" *ngIf="!data.hide">-->
+  <p
+    class="card-text"
+    [style.display]="'none'">
+    <!--<ng-content select=".punchline"></ng-content>-->
+    {{data.punchline | cleanPipe:'boo, damn, hell'}}
   </p>
-  <a (click)="data.toggle()"
-     role="button"
-     class="btn btn-warning">Tell Me
-  </a>
+  <!--<a (click)="data.toggle()"-->
+     <!--role="button"-->
+     <!--class="btn btn-warning">Tell Me-->
+  <!--</a>-->
   <a (click)="deleteItem()"
      role="button"
      class="btn btn-danger">Delete
