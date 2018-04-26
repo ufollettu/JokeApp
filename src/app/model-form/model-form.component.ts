@@ -68,4 +68,12 @@ export class ModelFormComponent implements OnInit {
     })
   }
 
+  onSubmit() {
+    if (this.myForm.valid) {
+      console.log("form submitted");
+      console.log(this.myForm.value);
+      this.myForm.reset();
+    }
+  }
+
 }

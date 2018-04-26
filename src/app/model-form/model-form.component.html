@@ -1,7 +1,8 @@
 <hr>
 <form
   [formGroup]="myForm"
-  novalidate>
+  novalidate
+(ngSubmit)="onSubmit()">
   <fieldset formGroupName="name">
     <div class="form-group"
          [ngClass]="{
@@ -100,6 +101,7 @@
   <!--<pre>UnTouched? {{ myForm.controls.email.untouched }}</pre>-->
   <!--<pre>Valid? {{ myForm.controls.email.valid }}</pre>-->
   <!--<pre>InValid? {{ myForm.controls.email.invalid }}</pre>-->
+  <button type="submit" class="btn btn-primary" >Submit</button>
 
   <h2>Form Values</h2>
   <pre>{{myForm.value | json}}</pre>
