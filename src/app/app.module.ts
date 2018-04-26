@@ -23,7 +23,8 @@ import {DefaultPipe} from './default.pipe';
 import {DefaultMultiplePipe} from './default-multiple.pipe';
 import {CleanPipePipe} from './clean-pipe.pipe';
 import {ModelFormComponent} from './model-form/model-form.component';
-import { ReactiveModelFormComponent } from './reactive-model-form/reactive-model-form.component';
+import {ReactiveModelFormComponent} from './reactive-model-form/reactive-model-form.component';
+import {TemplateFormComponent} from './template-form/template-form.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ReactiveModelFormComponent } from './reactive-model-form/reactive-model
     DefaultMultiplePipe,
     CleanPipePipe,
     ModelFormComponent,
-    ReactiveModelFormComponent
+    ReactiveModelFormComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,
