@@ -1,19 +1,49 @@
 <div class="card card-block">
-  <h4 class="card-title">Create Joke</h4>
-  <div class="form-group">
-    <input type="text"
-           class="form-control"
-           placeholder="Enter the setup"
-           #setup>
-  </div>
-  <div class="form-group">
-    <input type="text"
-           class="form-control"
-           placeholder="Enter the punchline"
-           #punchline>
-  </div>
-  <button type="button"
-          class="btn btn-primary"
-          (click)="createJoke(setup.value, punchline.value)">Create
-  </button>
+  <form
+    novalidate
+    [formGroup]="jokeForm"
+    (ngSubmit)="onSubmit()">
+    <h4 class="card-title">Create Joke</h4>
+    <div class="form-group"
+         [ngClass]="{
+          'has-danger': setup.invalid && (setup.dirty || setup.touched),
+          'has-success': setup.valid && (setup.dirty || setup.touched)
+        }">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter the setup"
+        formControlName="setup"
+        required>
+      <div class="form-control-feedback"
+           *ngIf="setup.errors && (setup.dirty || setup.touched)">
+        <p *ngIf="setup.errors.required">Setup is required</p>
+      </div>
+    </div>
+    <!--<pre>Dirty? {{ jokeForm.controls.setup.dirty }}</pre>-->
+    <div class="form-group"
+         [ngClass]="{
+        'has-danger': punchline.invalid && (punchline.dirty || punchline.touched),
+        'has-success': punchline.valid && (punchline.dirty || punchline.touched)
+      }">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter the punchline"
+        formControlName="punchline"
+        required>
+      <div class="form-control-feedback"
+           *ngIf="punchline.errors && (punchline.dirty || punchline.touched)">
+        <p *ngIf="punchline.errors.required">Punchline is required</p>
+      </div>
+    </div>
+    <!--<pre>Dirty? {{ jokeForm.controls.punchline.dirty }}</pre>-->
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="jokeForm.invalid"
+    >Create
+    </button>
+  </form>
 </div>
