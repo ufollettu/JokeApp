@@ -1,7 +1,15 @@
 import {
   AfterContentInit,
-  AfterViewInit, Component, ContentChild, ElementRef, Input, QueryList, ViewChild, ViewChildren,
-  ViewContainerRef
+  AfterViewInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  Input,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+  ViewContainerRef,
+  InjectionToken
 } from '@angular/core';
 import {Joke} from "./joke";
 import {AlertComponent} from "./alert/alert.component";
@@ -12,7 +20,7 @@ import {AlertComponent} from "./alert/alert.component";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  joke: Joke = new Joke("A kid threw a lump of cheddar at me", "I thought ‘That’s not very mature’");
+  joke: Joke = new Joke("content joke", "done");
 
   @ViewChild("div") div: any;
   @ViewChildren(AlertComponent, { read: ViewContainerRef }) alerts: QueryList<AlertComponent>;

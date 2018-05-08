@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 import {Joke} from "../joke";
 import {JokeComponent} from "../joke/joke.component";
+import {JokeService} from "../joke.service";
 
 @Component({
   selector: 'app-joke-list',
@@ -37,26 +38,29 @@ export class JokeListComponent {
   //   this.jokes = []
   // }
 
-  jokes: Joke[];
+  // jokes: Joke[];
 
-  constructor() {
-    this.jokes = [
-      new Joke("What did the cheese say when it looked in the mirror?", "Hello-me (Halloumi)"),
-      new Joke("What kind of cheese do you use to disguise a small horse?", "Mask-a-pony (Mascarpone)"),
-      new Joke("A kid threw a lump of cheddar at me", "I thought ‘That’s not very mature’"),
-    ];
+  constructor(private jokeService: JokeService) {
+    // this.jokes = [
+    //   new Joke("What did the cheese say when it looked in the mirror?", "Hello-me (Halloumi)"),
+    //   new Joke("What kind of cheese do you use to disguise a small horse?", "Mask-a-pony (Mascarpone)"),
+    //   new Joke("A kid threw a lump of cheddar at me", "I thought ‘That’s not very mature’"),
+    // ];
+    // this.jokes = this.jokeService.jokes;
   }
 
-  addJoke(joke) {
-    this.jokes.unshift(joke);
-  }
-
-  deleteJoke(joke) {
-    let indexToDelete = this.jokes.indexOf(joke);
-    if (indexToDelete !== -1) {
-      this.jokes.splice(indexToDelete, 1);
-    }
-  }
+  // addJoke(joke) {
+  //   // this.jokes.unshift(joke);
+  //   this.jokeService.addJoke(joke);
+  // }
+  //
+  // deleteJoke(joke) {
+  //   // let indexToDelete = this.jokes.indexOf(joke);
+  //   // if (indexToDelete !== -1) {
+  //   //   this.jokes.splice(indexToDelete, 1);
+  //   // }
+  //   this.jokeService.deleteJoke(joke);
+  // }
 
   // ngOnInit() {
   // }

@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {InjectionToken, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 
@@ -25,10 +25,10 @@ import {CleanPipePipe} from './clean-pipe.pipe';
 import {ModelFormComponent} from './model-form/model-form.component';
 import {ReactiveModelFormComponent} from './reactive-model-form/reactive-model-form.component';
 import {TemplateFormComponent} from './template-form/template-form.component';
-import { ParentComponentComponent } from './parent-component/parent-component.component';
-import { ChildComponentComponent } from './child-component/child-component.component';
+import {ParentComponentComponent} from './parent-component/parent-component.component';
+import {ChildComponentComponent} from './child-component/child-component.component';
 import {SimpleService} from "./simple-service";
-
+import {JokeService} from "./joke.service";
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ import {SimpleService} from "./simple-service";
     ReactiveModelFormComponent,
     TemplateFormComponent,
     ParentComponentComponent,
-    ChildComponentComponent
+    ChildComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +63,10 @@ import {SimpleService} from "./simple-service";
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [SimpleService],
+  providers: [
+    SimpleService,
+    JokeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
