@@ -25,6 +25,9 @@ import {CleanPipePipe} from './clean-pipe.pipe';
 import {ModelFormComponent} from './model-form/model-form.component';
 import {ReactiveModelFormComponent} from './reactive-model-form/reactive-model-form.component';
 import {TemplateFormComponent} from './template-form/template-form.component';
+import { ParentComponentComponent } from './parent-component/parent-component.component';
+import { ChildComponentComponent } from './child-component/child-component.component';
+import {SimpleService} from "./simple-service";
 
 
 @NgModule({
@@ -50,7 +53,9 @@ import {TemplateFormComponent} from './template-form/template-form.component';
     CleanPipePipe,
     ModelFormComponent,
     ReactiveModelFormComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    ParentComponentComponent,
+    ChildComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,7 @@ import {TemplateFormComponent} from './template-form/template-form.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [SimpleService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
