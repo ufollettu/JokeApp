@@ -36,7 +36,7 @@ export class HttpDemoComponent implements OnInit {
     const search = new URLSearchParams();
 
     search.set('foo', 'moo');
-    search.set('limit', 25);
+    search.set('limit', '25');
     this.http.post(url, {nome: 'anselmo', cognome: 'mario'}, {search})
       .subscribe(
         res => console.log(res.json())
@@ -48,7 +48,7 @@ export class HttpDemoComponent implements OnInit {
     const url = `${this.apiRoot}/put`;
     const search = new URLSearchParams();
     search.set('foo', 'moo');
-    search.set('limit', 25);
+    search.set('limit', '25');
     this.http.put(url, {moo:"foo",goo:"loo"}, {search}).subscribe(res => console.log(res.json()));
   }
 
@@ -57,7 +57,7 @@ export class HttpDemoComponent implements OnInit {
     const url = `${this.apiRoot}/delete`;
     const search = new URLSearchParams();
     search.set('foo', 'moo');
-    search.set('limit', 25);
+    search.set('limit', '25');
     this.http.delete(url, {search}) // {search: search} ES& destructuring same name
       .subscribe(
         res => console.log(res.json())
@@ -69,7 +69,7 @@ export class HttpDemoComponent implements OnInit {
     const url = `${this.apiRoot}/get`;
     const search = new URLSearchParams();
     search.set('puttimo', 'moo');
-    search.set('limit', 25);
+    search.set('limit', '25');
 
     this.http.get(url, {search})
       .toPromise() // convert observable to promise

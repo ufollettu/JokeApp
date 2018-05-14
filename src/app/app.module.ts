@@ -30,6 +30,8 @@ import {ChildComponentComponent} from './child-component/child-component.compone
 import {SimpleService} from "./simple-service";
 import {JokeService} from "./joke.service";
 import { HttpDemoComponent } from './http-demo/http-demo.component';
+import { ItunesSearchComponent } from './itunes-search/itunes-search.component';
+import {SearchServiceService} from "./search-service.service";
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { HttpDemoComponent } from './http-demo/http-demo.component';
     ParentComponentComponent,
     ChildComponentComponent,
     HttpDemoComponent,
+    ItunesSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { HttpDemoComponent } from './http-demo/http-demo.component';
   ],
   providers: [
     SimpleService,
-    JokeService
+    JokeService,
+    SearchServiceService
   ],
   bootstrap: [AppComponent]
 })
