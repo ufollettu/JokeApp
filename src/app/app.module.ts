@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {InjectionToken, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
+import {Http, Response, RequestOptions, Headers, HttpModule} from "@angular/http";
 
 import {AppComponent} from './app.component';
 import {JokeComponent} from './joke/joke.component';
@@ -29,6 +29,7 @@ import {ParentComponentComponent} from './parent-component/parent-component.comp
 import {ChildComponentComponent} from './child-component/child-component.component';
 import {SimpleService} from "./simple-service";
 import {JokeService} from "./joke.service";
+import { HttpDemoComponent } from './http-demo/http-demo.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {JokeService} from "./joke.service";
     TemplateFormComponent,
     ParentComponentComponent,
     ChildComponentComponent,
+    HttpDemoComponent,
   ],
   imports: [
     BrowserModule,
