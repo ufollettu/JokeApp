@@ -7,6 +7,7 @@ import {SearchServiceService} from "../search-service.service";
   styleUrls: ['./itunes-search.component.css']
 })
 export class ItunesSearchComponent implements OnInit {
+  private loading:boolean = false;
 
   constructor(private itunes:SearchServiceService) {
   }
@@ -17,7 +18,11 @@ export class ItunesSearchComponent implements OnInit {
   // search in iTunes db
   doSearch(term: string) {
     // console.log(term);
-    this.itunes.search(term);
+    this.loading = true;
+    this.itunes.search(term) // promise
+      .then(
+        () => this.loading = false
+      );
   }
 
 }
