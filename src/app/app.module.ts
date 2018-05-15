@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {InjectionToken, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {Http, Response, RequestOptions, Headers, HttpModule} from "@angular/http";
+import {Http, Response, RequestOptions, Headers, HttpModule, JsonpModule} from "@angular/http";
 
 import {AppComponent} from './app.component';
 import {JokeComponent} from './joke/joke.component';
@@ -32,6 +32,8 @@ import {JokeService} from "./joke.service";
 import { HttpDemoComponent } from './http-demo/http-demo.component';
 import { ItunesSearchComponent } from './itunes-search/itunes-search.component';
 import {SearchServiceService} from "./search-service.service";
+import {SearchService} from "./search.service";
+import { HttpExerciseComponent } from './http-exercise/http-exercise.component';
 
 @NgModule({
   declarations: [
@@ -61,17 +63,20 @@ import {SearchServiceService} from "./search-service.service";
     ChildComponentComponent,
     HttpDemoComponent,
     ItunesSearchComponent,
+    HttpExerciseComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    JsonpModule
   ],
   providers: [
     SimpleService,
     JokeService,
-    SearchServiceService
+    SearchServiceService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })
