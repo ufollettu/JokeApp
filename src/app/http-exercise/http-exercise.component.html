@@ -4,12 +4,12 @@
       type="search"
       class="form-control"
       placeholder="enter search string"
-      #search>
+      [formControl]="searchField">
   </div>
-  <button
-    type="button"
-    class="btn btn-primary"
-    (click)="doSearch(search.value)">Search</button>
+  <!--<button-->
+    <!--type="button"-->
+    <!--class="btn btn-primary"-->
+    <!--(click)="doSearch(search.value)">Search</button>-->
 </form>
 
 <hr>
@@ -21,7 +21,7 @@
 <ul class="list-group">
   <li
     class="list-group-item"
-    *ngFor="let track of itunes.results">
+    *ngFor="let track of results | async">
     <img src="{{track.thumbnail}}">
     <a
       target="_blank"

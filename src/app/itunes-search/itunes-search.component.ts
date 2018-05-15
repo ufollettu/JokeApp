@@ -28,9 +28,10 @@ export class ItunesSearchComponent implements OnInit {
       .debounceTime(400)
       .distinctUntilChanged()
       .do(() => this.loading = true)
+      // change from Observable<Observable<SearchItem[]>> into Observable<SearchItem[]>
       .switchMap(term => this.itunes.search(term))
-      .do(() => this.loading = false); // change from Observable<Observable<SearchItem[]>> into Observable<SearchItem[]>
-      // .subscribe(value => console.log(value)); // Need to call subscribe to make it hot!
+      .do(() => this.loading = false);
+      // .subscribe(value => console.log(value)); // Need to call subscribe to make it hot! if not using async pipe
   }
 
   // search in iTunes db
@@ -59,9 +60,9 @@ export class ItunesSearchComponent implements OnInit {
 
   // using async pipe in template
   //
-  doSearch(term: string) {
-    this.loading = true;
-    this.results = this.itunes.search(term);
-  }
+  // doSearch(term: string) {
+  //   this.loading = true;
+  //   this.results = this.itunes.search(term);
+  // }
 
 }
