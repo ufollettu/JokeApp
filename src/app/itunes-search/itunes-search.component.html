@@ -1,15 +1,21 @@
 <form class="form-inline">
   <div class="form-group">
+    <!--<input-->
+      <!--type="search"-->
+      <!--class="form-control"-->
+      <!--placeholder="Enter search string"-->
+      <!--#search-->
+      <!--[(ngModel)]="searchinput"-->
+      <!--name="searchinput"-->
+    <!--&gt;-->
     <input
       type="search"
       class="form-control"
       placeholder="Enter search string"
-      #search
-      [(ngModel)]="searchinput"
-      name="searchinput"
+      [formControl]="searchField"
     >
-    <p>{{searchinput}}</p>
-    <button class="btn btn-primary" (click)="doSearch(search.value)">Search</button>
+    <!--<p>{{searchinput}}</p>-->
+    <!--<button class="btn btn-primary" (click)="doSearch(search.value)">Search</button>-->
     <div class="text-center">
       <p class="lead" *ngIf="loading">Loading...</p>
     </div>
@@ -17,6 +23,7 @@
       <li
         class="list-group-item"
         *ngFor="let track of results | async">
+        <h2>{{track.artist}}</h2>
         <img src="{{track.thumbnail}}">
         <a target="_blank" href="{{track.link}}">
           {{track.name}}
