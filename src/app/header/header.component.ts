@@ -13,11 +13,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  goHome() {
-    this.router.navigate(['']);
-  }
-
-  goSearch() {
-    this.router.navigate(['search']);
-  }
+  // goHome() {
+  //   this.router.navigate(['']);
+  // }
+  //
+  // goSearch() {
+  //   this.router.navigate(['search']);
+  // }
 }
