@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { Signup } from "../signup";
+import { Signup } from '../signup';
 
 @Component({
   selector: 'app-template-form',
@@ -22,7 +22,7 @@ export class TemplateFormComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log("form submittetd");
+      console.log('form submittetd');
       this.form.reset();
     }
   }

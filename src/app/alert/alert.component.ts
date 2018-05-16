@@ -6,12 +6,12 @@ import {AfterContentInit, Component, ContentChild, Input} from '@angular/core';
   styleUrls: ['./alert.component.css']
 })
 export class AlertComponent implements AfterContentInit {
-  @Input() type: string = "success"; // pass property from parent component template (AppComponent)
-  @ContentChild("insideContent") insideContent;
+  @Input() type = 'success'; // pass property from parent component template (AppComponent)
+  @ContentChild('insideContent') insideContent;
 
 
   alert() {
-    console.log("alert");
+    console.log('alert');
   }
 
   ngAfterContentInit() {

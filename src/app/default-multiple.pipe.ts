@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DefaultMultiplePipe implements PipeTransform {
   // multiple parameter pipe
   transform(value: string, fallback: string, forceHttps: boolean = false): string {
-    let image = "";
+    let image = '';
     if (value) {
       image = value;
     } else {
@@ -15,8 +15,8 @@ export class DefaultMultiplePipe implements PipeTransform {
 
     if (forceHttps) {
       // force use of https instead of http url of image
-      if (image.indexOf("https") == -1) {
-        image = image.replace("http", "https");
+      if (image.indexOf('https') === -1) {
+        image = image.replace('http', 'https');
       }
     }
     return image;

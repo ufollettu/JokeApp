@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SimpleService} from "../simple-service";
+import {SimpleService} from '../simple-service';
 
 @Component({
   selector: 'app-parent-component',

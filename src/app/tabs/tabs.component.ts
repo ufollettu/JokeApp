@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, ContentChildren, OnInit, QueryList} from '@angular/core';
-import {TabComponent} from "../tab/tab.component";
+import {TabComponent} from '../tab/tab.component';
 
 @Component({
   selector: 'app-tabs',
@@ -15,6 +15,6 @@ export class TabsComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() {
-    this.tabs.forEach((tab)=> console.log(tab.title));
+    this.tabs.forEach((tab) => console.log(tab.title));
   }
 }

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {SearchService} from "../search.service";
-import {SearchItem} from "../search-item";
-import {Observable} from "rxjs/Observable";
-import {FormControl} from "@angular/forms";
+import {SearchService} from '../search.service';
+import {SearchItem} from '../search-item';
+import {Observable} from 'rxjs/Observable';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-http-exercise',
@@ -10,7 +10,7 @@ import {FormControl} from "@angular/forms";
   styleUrls: ['./http-exercise.component.css']
 })
 export class HttpExerciseComponent implements OnInit {
-  private loading: boolean = false;
+  private loading = false;
   // private results: SearchItem[];
   private results: Observable<SearchItem[]>;
   private searchField: FormControl;

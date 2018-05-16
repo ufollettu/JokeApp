@@ -1,5 +1,5 @@
 import {Inject, Injectable, InjectionToken} from '@angular/core';
-import {Joke} from "./joke";
+import {Joke} from './joke';
 
 // const MAX_JOKES_TOKEN = new InjectionToken<string>("Max Jokes");
 
@@ -11,9 +11,9 @@ export class JokeService {
 
   constructor() {
     this.jokes = [
-      new Joke("What did the cheese say when it looked in the mirror?", "Hello-me (Halloumi)"),
-      new Joke("What kind of cheese do you use to disguise a small horse?", "Mask-a-pony (Mascarpone)"),
-      new Joke("A kid threw a lump of cheddar at me", "I thought ‘That’s not very mature’"),
+      new Joke('What did the cheese say when it looked in the mirror?', 'Hello-me (Halloumi)'),
+      new Joke('What kind of cheese do you use to disguise a small horse?', 'Mask-a-pony (Mascarpone)'),
+      new Joke('A kid threw a lump of cheddar at me', 'I thought ‘That’s not very mature’'),
     ];
     this.maxJokes = 2;
   }
@@ -29,7 +29,7 @@ export class JokeService {
   }
 
   deleteJoke(joke) {
-    let indexToDelete = this.jokes.indexOf(joke);
+    const indexToDelete = this.jokes.indexOf(joke);
     if (indexToDelete !== -1) {
       this.jokes.splice(indexToDelete, 1);
     }

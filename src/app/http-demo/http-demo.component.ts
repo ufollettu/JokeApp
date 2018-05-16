@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Headers, Http, RequestOptions, URLSearchParams} from "@angular/http";
+import {Headers, Http, RequestOptions, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
   styleUrls: ['./http-demo.component.css']
 })
 export class HttpDemoComponent implements OnInit {
-  apiRoot: string = "http://httpbin.org";
+  apiRoot = 'http://httpbin.org';
 
   constructor(private http: Http) {
   }
@@ -17,7 +17,7 @@ export class HttpDemoComponent implements OnInit {
   }
 
   doGET() {
-    console.log("get");
+    console.log('get');
     const url = `${this.apiRoot}/get`;
     const search = new URLSearchParams(); // create a configuration file with additional params
 
@@ -31,7 +31,7 @@ export class HttpDemoComponent implements OnInit {
   }
 
   doPOST() {
-    console.log("post");
+    console.log('post');
     const url = `${this.apiRoot}/post`;
     const search = new URLSearchParams();
 
@@ -44,16 +44,16 @@ export class HttpDemoComponent implements OnInit {
   }
 
   doPUT() {
-    console.log("PUT");
+    console.log('PUT');
     const url = `${this.apiRoot}/put`;
     const search = new URLSearchParams();
     search.set('foo', 'moo');
     search.set('limit', '25');
-    this.http.put(url, {moo:"foo",goo:"loo"}, {search}).subscribe(res => console.log(res.json()));
+    this.http.put(url, {moo: 'foo', goo: 'loo'}, {search}).subscribe(res => console.log(res.json()));
   }
 
   doDELETE() {
-    console.log("delete");
+    console.log('delete');
     const url = `${this.apiRoot}/delete`;
     const search = new URLSearchParams();
     search.set('foo', 'moo');
@@ -65,7 +65,7 @@ export class HttpDemoComponent implements OnInit {
   }
 
   doGETAsPromise() {
-    console.log("get as promise");
+    console.log('get as promise');
     const url = `${this.apiRoot}/get`;
     const search = new URLSearchParams();
     search.set('puttimo', 'moo');
@@ -79,7 +79,7 @@ export class HttpDemoComponent implements OnInit {
   }
 
   doGETAsPromiseError() {
-    console.log("GET AS PROMISE ERROR");
+    console.log('GET AS PROMISE ERROR');
     const url = `${this.apiRoot}/post`;
     this.http.get(url)
       .toPromise()
@@ -90,7 +90,7 @@ export class HttpDemoComponent implements OnInit {
   }
 
   doGETAsObservableError() {
-    console.log("get as obs error");
+    console.log('get as obs error');
     const url = `${this.apiRoot}/post`;
     this.http.get(url)
       .subscribe(
@@ -100,15 +100,15 @@ export class HttpDemoComponent implements OnInit {
   }
 
   doGETWithHeaders() {
-    console.log("get with headers");
+    console.log('get with headers');
 
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Authorization', btoa('username:password')); // btoa convert string to base64
 
-    let options = new RequestOptions();
+    const options = new RequestOptions();
     options.headers = headers;
 
-    let url = `${this.apiRoot}/get`;
+    const url = `${this.apiRoot}/get`;
 
     this.http.get(url, options)
       .subscribe(

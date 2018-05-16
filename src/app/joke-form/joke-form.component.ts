@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Joke} from "../joke";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Joke} from '../joke';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-joke-form',
@@ -34,11 +34,11 @@ export class JokeFormComponent implements OnInit {
     this.jokeForm = new FormGroup({
       setup: this.setup,
       punchline: this.punchline
-    })
+    });
   }
 
   onSubmit() {
-    if(this.jokeForm.valid) {
+    if (this.jokeForm.valid) {
       this.createJoke(this.setup.value, this.punchline.value);
       // console.log("form submitted");
       this.jokeForm.reset();

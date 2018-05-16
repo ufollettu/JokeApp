@@ -1,5 +1,5 @@
 import {AfterContentInit, Component, ContentChildren, Input, OnInit, QueryList} from '@angular/core';
-import {CarouselItemComponent} from "../carousel-item/carousel-item.component";
+import {CarouselItemComponent} from '../carousel-item/carousel-item.component';
 
 @Component({
   selector: 'app-carousel',
@@ -10,7 +10,7 @@ export class CarouselComponent implements OnInit, AfterContentInit {
   // project to carousel-item
   @ContentChildren(CarouselItemComponent) carouselItemsList: QueryList<CarouselItemComponent>;
   // retrieve from app-component template
-  @Input() delay: number = 500;
+  @Input() delay = 500;
 
   constructor() { }
 
@@ -18,11 +18,11 @@ export class CarouselComponent implements OnInit, AfterContentInit {
   }
 
   ngAfterContentInit() {
-    let carouselItems = this.carouselItemsList.toArray();
-    let count: number = 0;
-    let max = carouselItems.length;
+    const carouselItems = this.carouselItemsList.toArray();
+    let count = 0;
+    const max = carouselItems.length;
     setInterval(() => {
-      let i = count % max; // why use module????
+      const i = count % max; // why use module????
       // ex.: (count=0 + max=3) = 3/max=3 = 1 col resto di i=0
       // ex.: (count=1 + max=3) = 4/max=3 = 1 col resto di i=1
       // ex.: (count=2 + max=3) = 5/max=3 = 2 col resto di i=2
@@ -40,7 +40,7 @@ export class CarouselComponent implements OnInit, AfterContentInit {
       // isActive is a property of CarouselItemComponent that now we can access from here
       carouselItems[i].isActive = true;
       count += 1;
-    }, this.delay)
+    }, this.delay);
   }
 
 }

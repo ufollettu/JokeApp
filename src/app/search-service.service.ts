@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import {Http, Jsonp} from "@angular/http";
+import {Http, Jsonp} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import {SearchItem} from "./search-item";
-import {Observable} from "rxjs/Observable";
+import {SearchItem} from './search-item';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class SearchServiceService {
-  apiRoot: string = 'https://itunes.apple.com/search';
+  apiRoot = 'https://itunes.apple.com/search';
   results: SearchItem[];
-  loading: boolean;
+  // loading: boolean;
 
   // using http
   //
@@ -20,7 +20,9 @@ export class SearchServiceService {
 
   // using JSONP
   //
-  constructor(private jsonp: Jsonp) {}
+  constructor(private jsonp: Jsonp) {
+    this.results = [];
+  }
 
   // using Promise
   //
@@ -60,6 +62,39 @@ export class SearchServiceService {
   //   return promise;
   // }
 
+  // using Promise and jsonp
+  //
+  search(term: string) {
+    const promise = new Promise(
+      (resolve, reject) => {
+        this.results = [];
+        const apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
+        this.jsonp.get(apiURL)
+          .toPromise()
+          .then(
+            res => {
+              this.results = res.json().results.map(
+                item => {
+                  return new SearchItem(
+                    item.trackName,
+                    item.artistName,
+                    item.trackViewUrl,
+                    item.artworkUrl100,
+                    item.artistId
+                  );
+                }
+              );
+              resolve();
+            },
+            msg => {
+              reject(msg);
+            }
+          );
+      }
+    );
+    return promise;
+  }
+
   // using Observable
   //
   // search(term: string): Observable<SearchItem[]> {
@@ -85,24 +120,24 @@ export class SearchServiceService {
 
   // using JSONP (change http to jsonp and get to request, the url string provides a callback parameter)
   //
-  search(term: string): Observable<SearchItem[]> {
-    const apiURL = `${this.apiRoot}?term=${term}&media=music&limit=100&callback=JSONP_CALLBACK`;
-    return this.jsonp.request(apiURL)
-      .map(
-        res => {
-          return res.json().results.map(
-            item => {
-              // convert the raw data returned from the iTunes API into an instance of SearchItem
-              return new SearchItem(
-                item.trackName,
-                item.artistName,
-                item.trackViewUrl,
-                item.artworkUrl100,
-                item.artistId
-              );
-            }
-          );
-        }
-      );
-  }
+  // search(term: string): Observable<SearchItem[]> {
+  //   const apiURL = `${this.apiRoot}?term=${term}&media=music&limit=100&callback=JSONP_CALLBACK`;
+  //   return this.jsonp.request(apiURL)
+  //     .map(
+  //       res => {
+  //         return res.json().results.map(
+  //           item => {
+  //             // convert the raw data returned from the iTunes API into an instance of SearchItem
+  //             return new SearchItem(
+  //               item.trackName,
+  //               item.artistName,
+  //               item.trackViewUrl,
+  //               item.artworkUrl100,
+  //               item.artistId
+  //             );
+  //           }
+  //         );
+  //       }
+  //     );
+  // }
 }

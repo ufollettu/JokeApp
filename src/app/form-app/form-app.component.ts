@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 import 'rxjs/Rx';
 
@@ -10,18 +10,18 @@ import 'rxjs/Rx';
 })
 export class FormAppComponent implements OnInit {
   form: FormGroup;
-  comment = new FormControl("", Validators.required);
-  name = new FormControl("", Validators.required);
-  email = new FormControl("", [
+  comment = new FormControl('', Validators.required);
+  name = new FormControl('', Validators.required);
+  email = new FormControl('', [
     Validators.required,
-    Validators.pattern("[^ @]*@[^ @]*")
+    Validators.pattern('[^ @]*@[^ @]*')
   ]);
 
   constructor(fb: FormBuilder) {
     this.form = fb.group({
-      "comment": this.comment,
-      "name": this.name,
-      "email": this.email
+      'comment': this.comment,
+      'name': this.name,
+      'email': this.email
     });
     this.form.valueChanges
       .filter(data => this.form.valid)
@@ -29,17 +29,17 @@ export class FormAppComponent implements OnInit {
       .distinctUntilChanged((prev, next) => prev.comment === next.comment)
       .map(data => {
         data.comment = data.comment.replace(/<(?:.|\n)*?>/gm, '');
-        return data
+        return data;
       })
       .map(data => {
-        data.lastUpdateTS = new Date()
-        return data
+        data.lastUpdateTS = new Date();
+        return data;
       })
       .subscribe(data => console.log(JSON.stringify(data)));
   }
 
   onSubmit() {
-    console.log("form submitted!");
+    console.log('form submitted!');
   }
 
   ngOnInit() {

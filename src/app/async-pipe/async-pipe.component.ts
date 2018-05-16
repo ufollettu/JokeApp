@@ -1,5 +1,5 @@
 import {Component, OnDestroy} from '@angular/core';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-async-pipe',
@@ -11,7 +11,7 @@ export class AsyncPipeComponent implements OnDestroy {
   promise: Promise<{}>;
   observableData: number;
   subscription = null;
-  observable : Observable<number>;
+  observable: Observable<number>;
 
   constructor() {
     // with classic Promise
@@ -26,7 +26,7 @@ export class AsyncPipeComponent implements OnDestroy {
 
   getPromise() {
     return new Promise((resolve, reject) => {
-      setTimeout(()=> resolve("promise complete"), 2000);
+      setTimeout(() => resolve('promise complete'), 2000);
     });
   }
 
@@ -34,7 +34,7 @@ export class AsyncPipeComponent implements OnDestroy {
     return Observable
       .interval(1000)
       .take(10)
-      .map(value => value*value);
+      .map(value => value * value);
   }
 
   subscribeObservable() {

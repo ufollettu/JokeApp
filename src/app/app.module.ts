@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {InjectionToken, NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {Http, Response, RequestOptions, Headers, HttpModule, JsonpModule} from "@angular/http";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {Http, Response, RequestOptions, Headers, HttpModule, JsonpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
 import {JokeComponent} from './joke/joke.component';
@@ -27,13 +27,24 @@ import {ReactiveModelFormComponent} from './reactive-model-form/reactive-model-f
 import {TemplateFormComponent} from './template-form/template-form.component';
 import {ParentComponentComponent} from './parent-component/parent-component.component';
 import {ChildComponentComponent} from './child-component/child-component.component';
-import {SimpleService} from "./simple-service";
-import {JokeService} from "./joke.service";
+import {SimpleService} from './simple-service';
+import {JokeService} from './joke.service';
 import { HttpDemoComponent } from './http-demo/http-demo.component';
 import { ItunesSearchComponent } from './itunes-search/itunes-search.component';
-import {SearchServiceService} from "./search-service.service";
-import {SearchService} from "./search.service";
+import {SearchServiceService} from './search-service.service';
+import {SearchService} from './search.service';
 import { HttpExerciseComponent } from './http-exercise/http-exercise.component';
+import { SearchComponent } from './search/search.component';
+import { HomeComponent } from './home/home.component';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'find', redirectTo: 'search'},
+  {path: 'search', component: SearchComponent },
+  {path: '**', component: HomeComponent}
+];
 
 @NgModule({
   declarations: [
@@ -64,13 +75,16 @@ import { HttpExerciseComponent } from './http-exercise/http-exercise.component';
     HttpDemoComponent,
     ItunesSearchComponent,
     HttpExerciseComponent,
+    SearchComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [
     SimpleService,

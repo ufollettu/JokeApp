@@ -3,9 +3,9 @@ import {
   AfterViewInit, Component, ContentChild, ElementRef, OnInit, QueryList, ViewChild,
   ViewChildren
 } from '@angular/core';
-import {Joke} from "../joke";
-import {JokeComponent} from "../joke/joke.component";
-import {JokeService} from "../joke.service";
+import {Joke} from '../joke';
+import {JokeComponent} from '../joke/joke.component';
+import {JokeService} from '../joke.service';
 
 @Component({
   selector: 'app-joke-list',

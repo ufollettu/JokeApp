@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DefaultPipe implements PipeTransform {
   // single parameter custom pipe
   transform(value: string, fallback: string): string {
-    let image = "";
+    let image = '';
     if (value) {
       image = value;
     } else {

@@ -11,8 +11,8 @@ import {
   ViewContainerRef,
   InjectionToken
 } from '@angular/core';
-import {Joke} from "./joke";
-import {AlertComponent} from "./alert/alert.component";
+import {Joke} from './joke';
+import {AlertComponent} from './alert/alert.component';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +20,9 @@ import {AlertComponent} from "./alert/alert.component";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  joke: Joke = new Joke("content joke", "done");
+  joke: Joke = new Joke('content joke', 'done');
 
-  @ViewChild("div") div: any;
+  @ViewChild('div') div: any;
   @ViewChildren(AlertComponent, { read: ViewContainerRef }) alerts: QueryList<AlertComponent>;
   // QueryList tip: when the state of the application changes Angular will automatically update the object items for you.
   @Input() type: string;

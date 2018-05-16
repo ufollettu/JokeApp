@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselItemComponent implements OnInit {
   // to template hidden property
-  isActive: boolean = false;
+  isActive = false;
 
   constructor() { }
 

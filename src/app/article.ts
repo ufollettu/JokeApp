@@ -13,9 +13,9 @@ export class Article {
 
   selectClass(kind) {
     if (kind === 'image') {
-      return 'card-outline-danger'
+      return 'card-outline-danger';
     } else {
-      return 'card-outline-primary'
+      return 'card-outline-primary';
     }
   }
 }

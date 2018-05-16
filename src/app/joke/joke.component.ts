@@ -3,14 +3,22 @@ import {
   OnChanges, OnDestroy, OnInit,
   Output, SimpleChanges
 } from '@angular/core';
-import {Joke} from "../joke";
+import {Joke} from '../joke';
 
 @Component({
   selector: 'app-joke',
   templateUrl: './joke.component.html',
   styleUrls: ['./joke.component.css']
 })
-export class JokeComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+export class JokeComponent implements
+  OnChanges,
+  OnInit,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
 
   constructor() {
     // console.log(`new - data is ${this.data}`);

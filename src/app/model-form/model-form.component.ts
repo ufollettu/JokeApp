@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-model-form',
@@ -47,7 +47,7 @@ export class ModelFormComponent implements OnInit {
     this.lastName = new FormControl('', Validators.required);
     this.email = new FormControl('', [
       Validators.required,
-      Validators.pattern("[^ @]*@[^ @]*")
+      Validators.pattern('[^ @]*@[^ @]*')
     ]);
     this.password = new FormControl('', [
       Validators.minLength(8),
@@ -65,12 +65,12 @@ export class ModelFormComponent implements OnInit {
       email: this.email,
       password: this.password,
       language: this.language
-    })
+    });
   }
 
   onSubmit() {
     if (this.myForm.valid) {
-      console.log("form submitted");
+      console.log('form submitted');
       console.log(this.myForm.value);
       this.myForm.reset();
     }

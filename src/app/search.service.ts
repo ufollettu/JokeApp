@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {SearchItem} from "./search-item";
-import {Http, Jsonp, Response} from "@angular/http";
+import {SearchItem} from './search-item';
+import {Http, Jsonp, Response} from '@angular/http';
 import 'rxjs/Rx';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class SearchService {
-  apiRoot: string = 'https://itunes.apple.com/search';
+  apiRoot = 'https://itunes.apple.com/search';
   results: SearchItem[];
   loading: boolean;
 
