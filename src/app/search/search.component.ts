@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchServiceService} from '../search-service.service';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
-  private loading: boolean = false;
+export class SearchComponent {
+  private loading = false;
 
   constructor(private itunes: SearchServiceService,
               private router: Router,

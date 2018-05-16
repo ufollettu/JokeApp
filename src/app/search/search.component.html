@@ -22,11 +22,11 @@
 
 <div class="list-group">
   <a
-    href="#"
+    [routerLink]="['/artist', track.artistId]"
     class="list-group-item list-group-item-action"
     *ngFor="let track of itunes.results"
     >
     <img src="{{track.thumbnail}}">{{track.name}}
-    <span class="text-muted">by</span>{{track.artist}}
+    <span class="text-muted">by </span>{{track.artist}}
   </a>
 </div>

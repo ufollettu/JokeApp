@@ -37,13 +37,24 @@ import { HttpExerciseComponent } from './http-exercise/http-exercise.component';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
+import { ArtistComponent } from './artist/artist.component';
+import { ArtistTrackListComponent } from './artist-track-list/artist-track-list.component';
+import { ArtistAlbumListComponent } from './artist-album-list/artist-album-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'find', redirectTo: 'search'},
   {path: 'search', component: SearchComponent },
-  // {path: 'search/:term', component: SearchComponent},
+  {
+    path: 'artist/:artistId',
+    component: ArtistComponent,
+    children: [
+      {path: '', redirectTo: 'tracks', pathMatch: 'full'},
+      {path: 'tracks', component: ArtistTrackListComponent},
+      {path: 'albums', component: ArtistAlbumListComponent}
+    ]
+  },
   {path: '**', component: HomeComponent}
 ];
 
@@ -78,6 +89,9 @@ const routes: Routes = [
     HttpExerciseComponent,
     SearchComponent,
     HomeComponent,
+    ArtistComponent,
+    ArtistTrackListComponent,
+    ArtistAlbumListComponent,
   ],
   imports: [
     BrowserModule,
