@@ -23,15 +23,15 @@ export class ItunesSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchField = new FormControl();
-    this.results = this.searchField.valueChanges
-      .debounceTime(400)
-      .distinctUntilChanged()
-      .do(() => this.loading = true)
-      // change from Observable<Observable<SearchItem[]>> into Observable<SearchItem[]>
-      .switchMap(term => this.itunes.search(term))
-      .do(() => this.loading = false);
-      // .subscribe(value => console.log(value)); // Need to call subscribe to make it hot! if not using async pipe
+  //   this.searchField = new FormControl();
+  //   this.results = this.searchField.valueChanges
+  //     .debounceTime(400)
+  //     .distinctUntilChanged()
+  //     .do(() => this.loading = true)
+  //     // change from Observable<Observable<SearchItem[]>> into Observable<SearchItem[]>
+  //     .switchMap(term => this.itunes.search(term))
+  //     .do(() => this.loading = false);
+  //     // .subscribe(value => console.log(value)); // Need to call subscribe to make it hot! if not using async pipe
   }
 
   // search in iTunes db

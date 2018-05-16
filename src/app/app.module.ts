@@ -43,6 +43,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'find', redirectTo: 'search'},
   {path: 'search', component: SearchComponent },
+  // {path: 'search/:term', component: SearchComponent},
   {path: '**', component: HomeComponent}
 ];
 
