@@ -22,10 +22,8 @@ export class ArtistAlbumListComponent implements OnInit {
             res => {
               console.log(res.json());
               this.albums = res.json().results.slice(1);
-            }
-          )
-      }
-    )
+            });
+      });
   }
 
   ngOnInit() {

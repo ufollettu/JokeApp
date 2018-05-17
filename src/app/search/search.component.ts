@@ -32,4 +32,8 @@ export class SearchComponent {
     // (1) on click search button we navigate to the url with the term name (../search/883)
     this.router.navigate(['search', {term: term}]); // {term: term} is an optional parameter
   }
+
+  canDeactivate() {
+    return this.itunes.results.length > 0;
+  }
 }
