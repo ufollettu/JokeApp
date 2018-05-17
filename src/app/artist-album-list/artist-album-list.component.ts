@@ -20,7 +20,7 @@ export class ArtistAlbumListComponent implements OnInit {
           .toPromise()
           .then(
             res => {
-              console.log(res.json());
+              // console.log(res.json());
               this.albums = res.json().results.slice(1);
             });
       });

@@ -54,7 +54,7 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent,
-    canDeactivate: [UnsearchedTermGuard]
+    // canDeactivate: [UnsearchedTermGuard]
   },
   {
     path: 'artist/:artistId',

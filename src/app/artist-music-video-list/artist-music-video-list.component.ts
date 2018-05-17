@@ -20,7 +20,7 @@ export class ArtistMusicVideoListComponent implements OnInit {
           .toPromise()
           .then(
             res => {
-              console.log(res.json());
+              // console.log(res.json());
               this.videos = res.json().results.slice(1);
             });
       });

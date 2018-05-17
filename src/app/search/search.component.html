@@ -5,6 +5,7 @@
       class="form-control"
       placeholder="enter search string"
       #search
+      (keyup.enter)="onSearch(search.value)"
     >
   </div>
   <button
